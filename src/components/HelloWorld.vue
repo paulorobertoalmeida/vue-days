@@ -15,8 +15,13 @@
     <h1 :class="status">My status</h1>
 
     <button v-bind:disable="isDisable">binding value</button>
-<h1 v-bind:class="isPromoted && 'notPromoted' ">Not Promoted?</h1>
-    <h1 v-bind:class="isPromoted ? 'promoted' : 'notPromoted' ">Promoted Movies</h1>
+    <h1 v-bind:class="isPromoted && 'notPromoted'">Not Promoted?</h1>
+    <h1 v-bind:class="isPromoted ? 'promoted' : 'notPromoted'">
+      Promoted Movies
+    </h1>
+    <h1 v-bind:class="[isPromoted && 'promoted', notPromoted && 'notPromoted']">
+      Que pasa?
+    </h1>
   </div>
 </template>
 
@@ -32,7 +37,7 @@ export default {
       isDisable: false,
       status: "danger",
       isPromoted: true,
-      notPromoted: false
+      notPromoted: false,
     };
   },
   methods() {
