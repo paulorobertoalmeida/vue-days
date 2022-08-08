@@ -55,6 +55,18 @@
       <h2>Two</h2>
       <h2>Three</h2>
     </template>
+
+    <div :style="[badeStyleObject, successObject]">
+      <ul v-for="(person, index) in people" :key="index">
+        <!-- <li v-for="(person, value) in people" :key="value">
+          {{ name }}: {{ age }} {{ index }}</li>
+
+        <hr /> -->
+        <li :style="{color: 'white'}" v-if="person.age >= 21 && 'canDrink'">
+          {{ person.name }} : {{ person.age }} {{ person.canDrink }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -63,8 +75,8 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      name: "Paulo",
-      age: 35,
+      name1: "Paulo",
+      age2: 35,
       band: "The Strokes",
       mode: 1,
       isDisable: false,
@@ -74,6 +86,8 @@ export default {
       mySize: 20,
       num: 1,
       display: true,
+      canDrink: true,
+      cantDrink: false,
 
       baseStyleObject: {
         color: "orange",
@@ -86,10 +100,25 @@ export default {
         border: "1px solid darkgreen",
         padding: " 20px",
       },
+      people: [
+        {
+          name: "John",
+          age: 18,
+        },
+        {
+          name: "Maria",
+          age: 21,
+        },
+        {
+          name: "Charles",
+          age: 40,
+        },
+        {
+          name: "Astile",
+          age: 89,
+        },
+      ],
     };
-  },
-  methods() {
-    this.name;
   },
 };
 </script>
@@ -120,5 +149,8 @@ a {
 
 .notPromoted {
   color: red;
+}
+.bg{
+  background-color: blue;
 }
 </style>
