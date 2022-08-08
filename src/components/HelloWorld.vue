@@ -42,6 +42,19 @@
     >
       This looks like a Button
     </div>
+
+    <h1 :style="[badeStyleObject, successObject]">style Object</h1>
+
+    <h1 v-if="num == 0">The number is zero</h1>
+    <h1 v-else-if="num == 1">The number is one</h1>
+    <h1 v-else-if="num == 2">The number is two</h1>
+    <h1 v-else>this is not a number</h1>
+
+    <template v-if="display">
+      <h2>One</h2>
+      <h2>Two</h2>
+      <h2>Three</h2>
+    </template>
   </div>
 </template>
 
@@ -58,7 +71,21 @@ export default {
       status: "danger",
       isPromoted: true,
       notPromoted: false,
-      mySize: 20
+      mySize: 20,
+      num: 1,
+      display: true,
+
+      baseStyleObject: {
+        color: "orange",
+        fontSize: " 20ps",
+        padding: " 10px",
+      },
+      successObject: {
+        color: "green",
+        backgroundColor: "lightgreen",
+        border: "1px solid darkgreen",
+        padding: " 20px",
+      },
     };
   },
   methods() {
