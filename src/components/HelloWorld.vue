@@ -3,8 +3,8 @@
     <p>Hello {{ name }} you have {{ age }}</p>
     <p v-text="band"></p>
 
-    <i v-if="mode == 1"> {{ name }} :</i>
-    <i v-else-if="mode == 2"> {{ age }} : </i>
+    <i v-if="mode == 1" :class="status"> {{ name }} :</i>
+    <i v-else-if="mode == 2" :class="notPromoted"> {{ age }} : </i>
     <i v-else> {{ band }} : </i>
     <select name="" id="" v-model="mode">
       <option value="1">Name</option>
@@ -22,6 +22,26 @@
     <h1 v-bind:class="[isPromoted && 'promoted', notPromoted && 'notPromoted']">
       Que pasa?
     </h1>
+
+    <h2
+      v-bind:class="{
+        promoted: isPromoted,
+        new: !notPromoted,
+        notPromoted: notPromoted,
+      }"
+    >
+      Moto Mami
+    </h2>
+    <div
+      :style="{
+        padding: '1.5em',
+        backgroundColor: '#3590f3',
+        color: '#FFFFFF',
+        fontSize: mySize + 'px',
+      }"
+    >
+      This looks like a Button
+    </div>
   </div>
 </template>
 
@@ -38,6 +58,7 @@ export default {
       status: "danger",
       isPromoted: true,
       notPromoted: false,
+      mySize: 20
     };
   },
   methods() {
